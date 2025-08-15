@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "name": "João Silva",
+    "company": "TechCorp",
+    "email": "joao.silva@techcorp.com",
+    "source": "Website",
+    "score": 85,
+    "status": "new"
+  },
+  {
+    "id": 2,
+    "name": "Maria Santos",
+    "company": "InnovaTech",
+    "email": "maria.santos@innovatech.com",
+    "source": "LinkedIn",
+    "score": 92,
+    "status": "qualified"
+  },
+  {
+    "id": 3,
+    "name": "Pedro Oliveira",
+    "company": "StartupXYZ",
+    "email": "pedro@startupxyz.com",
+    "source": "Referral",
+    "score": 78,
+    "status": "contacted"
+  },
+  {
+    "id": 4,
+    "name": "Ana Costa",
+    "company": "MegaCorp",
+    "email": "ana.costa@megacorp.com",
+    "source": "Cold Call",
+    "score": 65,
+    "status": "new"
+  },
+  {
+    "id": 5,
+    "name": "Carlos Ferreira",
+    "company": "DevSolutions",
+    "email": "carlos@devsolutions.com",
+    "source": "Website",
+    "score": 88,
+    "status": "qualified"
+  },
+  {
+    "id": 6,
+    "name": "Lucia Rodrigues",
+    "company": "CloudTech",
+    "email": "lucia.rodrigues@cloudtech.com",
+    "source": "LinkedIn",
+    "score": 73,
+    "status": "contacted"
+  },
+  {
+    "id": 7,
+    "name": "Roberto Lima",
+    "company": "DataFlow",
+    "email": "roberto@dataflow.com",
+    "source": "Email Campaign",
+    "score": 90,
+    "status": "qualified"
+  },
+  {
+    "id": 8,
+    "name": "Fernanda Alves",
+    "company": "WebDesign Pro",
+    "email": "fernanda@webdesignpro.com",
+    "source": "Referral",
+    "score": 82,
+    "status": "new"
+  },
+  {
+    "id": 9,
+    "name": "Ricardo Souza",
+    "company": "AppMakers",
+    "email": "ricardo.souza@appmakers.com",
+    "source": "Website",
+    "score": 76,
+    "status": "contacted"
+  },
+  {
+    "id": 10,
+    "name": "Juliana Pereira",
+    "company": "FinTech Solutions",
+    "email": "juliana@fintechsolutions.com",
+    "source": "Cold Call",
+    "score": 94,
+    "status": "qualified"
+  }
+]
+
