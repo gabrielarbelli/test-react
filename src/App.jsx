@@ -15,7 +15,7 @@ function App() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
 
-  // Simulate API call to load leads
+  // Carrega dados do localStorage ou do arquivo JSON inicial
   useEffect(() => {
     const loadLeads = async () => {
       try {
@@ -25,12 +25,19 @@ function App() {
         // Simulate network latency
         await new Promise(resolve => setTimeout(resolve, 1000));
         
-        // Simulate potential error (uncomment to test error state)
-        // if (Math.random() > 0.8) {
-        //   throw new Error('Failed to load leads');
-        // }
+        // Verifica se existem dados no localStorage
+        const savedLeads = localStorage.getItem('leads');
+        const savedOpportunities = localStorage.getItem('opportunities');
         
-        setLeads(leadsData);
+        if (savedLeads) {
+          setLeads(JSON.parse(savedLeads));
+        } else {
+          setLeads(leadsData);
+        }
+        
+        if (savedOpportunities) {
+          setOpportunities(JSON.parse(savedOpportunities));
+        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -40,6 +47,21 @@ function App() {
 
     loadLeads();
   }, []);
+
+  // Salva dados no localStorage sempre que leads ou opportunities forem atualizados
+  useEffect(() => {
+    if (!loading) {
+      // Salva leads no localStorage se houver dados
+      if (leads.length > 0) {
+        localStorage.setItem('leads', JSON.stringify(leads));
+      }
+      
+      // Salva oportunidades no localStorage se houver dados
+      if (opportunities.length > 0) {
+        localStorage.setItem('opportunities', JSON.stringify(opportunities));
+      }
+    }
+  }, [leads, opportunities, loading]);
 
   const handleLeadClick = (lead) => {
     setSelectedLead(lead);
@@ -57,11 +79,6 @@ function App() {
       
       // Simulate API call with potential failure
       await new Promise(resolve => setTimeout(resolve, 500));
-      
-      // Simulate potential error (uncomment to test error handling)
-      // if (Math.random() > 0.7) {
-      //   throw new Error('Failed to save lead');
-      // }
       
       // Update leads list
       setLeads(prevLeads => 
@@ -96,7 +113,11 @@ function App() {
         accountName: lead.company
       };
       
+      // Adiciona a nova oportunidade
       setOpportunities(prev => [...prev, newOpportunity]);
+      
+      // Remove o lead da lista original
+      setLeads(prevLeads => prevLeads.filter(l => l.id !== lead.id));
       
       // Close panel and show success
       setIsPanelOpen(false);
@@ -206,4 +227,5 @@ function App() {
 }
 
 export default App;
+
 
